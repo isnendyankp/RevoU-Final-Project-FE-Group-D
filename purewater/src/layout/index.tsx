@@ -1,4 +1,4 @@
-import Footer from '@/components/Footer';
+import { Footer } from '../components';
 import { ReactNode } from 'react';
 
 interface Prop{
