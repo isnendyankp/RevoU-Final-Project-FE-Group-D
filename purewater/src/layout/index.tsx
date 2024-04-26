@@ -1,5 +1,6 @@
 import { Footer } from '../components';
 import { ReactNode } from 'react';
+import { FAQ } from '../components';
 
 interface Prop{
     children:ReactNode
@@ -8,6 +9,7 @@ interface Prop{
 const Layout = ({children}:Prop)=>{
     return (
         <>
+        <FAQ/>
         {children}
         <Footer/>
         </>
