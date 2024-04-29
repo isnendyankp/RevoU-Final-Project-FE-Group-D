@@ -1,17 +1,13 @@
 import React from 'react';
 import Login from '../../components/Login';
-import Layout from '../../layout';
 
 const LoginPage = () => {
 
     return (
         <>
-            <Layout>
             
                 <Login />
-            
-            </Layout>
-
+        
         </>
     );
 };
