@@ -1,6 +1,5 @@
-import { Footer } from '../components';
+import { Footer, Navbar } from '../components';
 import { ReactNode } from 'react';
-import { FAQ } from '../components';
 
 interface Prop{
     children:ReactNode
@@ -9,7 +8,7 @@ interface Prop{
 const Layout = ({children}:Prop)=>{
     return (
         <>
-        <FAQ/>
+        <Navbar/>
         {children}
         <Footer/>
         </>
