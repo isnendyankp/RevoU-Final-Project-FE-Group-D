@@ -1,4 +1,4 @@
-import { Footer } from '../components';
+import { Footer, Navbar } from '../components';
 import { ReactNode } from 'react';
 
 interface Prop{
@@ -8,6 +8,7 @@ interface Prop{
 const Layout = ({children}:Prop)=>{
     return (
         <>
+        <Navbar/>
         {children}
         <Footer/>
         </>
