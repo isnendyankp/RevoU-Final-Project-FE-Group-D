@@ -1,4 +1,5 @@
 import { Carousel, FAQ } from '@/components';
+import Layout from '@/layout';
 import 'flowbite';
 // import Image from "next/image";
 // import { Inter } from "next/font/google";
@@ -7,9 +8,9 @@ import 'flowbite';
 
 export default function Home() {
   return (
-    <div>
+    <Layout>
       <Carousel />
       <FAQ />
-    </div>
+    </Layout>
   );
 }
