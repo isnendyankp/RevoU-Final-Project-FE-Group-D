@@ -1,95 +1,149 @@
-import React, { useState } from 'react';
-import { useFormik, Field, ErrorMessage, Form, Formik } from 'formik';
+// import 
+import { Input, Text, Button, Card } from '../../components';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { useRouter } from 'next/router';
-import * as Yup from 'yup';
-import Input from '../Input';
-import styles from './styles/style-login.module.css';
 
-interface LoginFormValues {
-  [key: string]: string;
-  email: string;
-  password: string;
-}
+// Login component
 
 const Login = () => {
+  // use Navigate router hook
   const router = useRouter();
 
-  const [formData, setFormData] = useState<LoginFormValues>({
-    email: '',
-    password: '',
+  // interface for form props
+  interface FormProps {
+    email: string;
+    password: string;
+  }
+
+  // useFormik hook
+  const formMik = useFormik<FormProps>({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+
+    // onSubmit function for login form
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch(
+          'https://mock-api.arikmpt.com/api/user/login',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+          // if response is ok, you can use it here
+          const data = await response.json();
+          // set token to local storage
+          localStorage.setItem('token', data.data.token);
+          console.log(data);
+          // navigate to home page
+          router.push('/');
+        }
+      } catch (error) {
+        // catch any network error or any error thrown in the fetch call
+        console.log(
+          'There has been a problem with your fetch operation: ' +
+            (error as Error).message
+        );
+      }
+    },
+
+    // validation for username, email & password
+    validationSchema: yup.object({
+      // name: yup.string().required('name tidak boleh kosong'),
+      email: yup
+        .string()
+        .email('Email tidak valid')
+        .required('Email tidak boleh kosong'),
+      password: yup
+        .string()
+        .min(8, 'Password minimal 8 karakter')
+        .required('Password tidak boleh kosong'),
+    }),
   });
 
-  const handleLogin = async (values: LoginFormValues) => {
-    try {
-      const requestOptions = {
-        method: 'POST',
-        body: JSON.stringify({
-          email: values.email,
-          password: values.password,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-
-      const response = await fetch('https://mock-api.arikmpt.com/api/user/login', requestOptions);
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log('Login berhasil:', responseData);
-        router.push('/home');
-      } else {
-        const errorData = await response.json();
-        console.error('Login gagal:', errorData);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   return (
-    <Formik
-      initialValues={formData}
-      validationSchema={Yup.object().shape({
-        email: Yup.string().email('Email tidak valid').required('Email harus diisi'),
-        password: Yup.string().required('Password harus diisi'),
-      })}
-      onSubmit={(values, { setSubmitting }) => {
-        if (Object.keys(values).some((key) => values[key] === '')) {
-          setSubmitting(false);
-        } else {
-          setFormData({ ...formData, ...values });
-          handleLogin(values);
-        }
-      }}
-    >
-      <Form className={styles['login-form']}>
-        <h1 className={styles['login-header']}>Login Page</h1>
+    <div className="bg-gray-100 flex justify-center items-center h-screen">
+      {/* Left: Image */}
+      <div className="w-1/2 h-screen hidden lg:block">
+        <img
+          src="https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA"
+          alt="Placeholder Image"
+          className="object-cover w-full h-full"
+        />
+      </div>
 
-        <label htmlFor="email" className={styles['form-label']}>
-          Email:
-        </label>
-        <Field as={Input} className={styles['form-input']} type="email" id="email" name="email" placeholder="Email" />
-        <ErrorMessage name="email" component="span" className={styles['error-message']} />
+      {/* Right: Form */}
+      <Card
+        border={false}
+        className="flex items-center justify-center min-h-screen bg-gray-200 "
+      >
+        <Card border className="p-10 bg-white shadow-lg rounded-lg">
+          <form
+            onSubmit={formMik.handleSubmit}
+            className="space-y-6"
+            data-testid="login-form"
+          >
+            {/* email */}
+            <div className="space-y-2">
+              <Text className="font-bold text-lg text-black text-center">
+                {'Email'}
+              </Text>
+              <Input
+                className="block border-emerald-700 border w-full p-2 rounded-lg"
+                name={'email'}
+                value={formMik.values.email}
+                onChange={formMik.handleChange('email')}
+                placeholder="Email Address"
+              />
+              {formMik.errors.email && <Text>{formMik.errors.email}</Text>}
+            </div>
 
-        <label htmlFor="password" className={styles['form-label']}>
-          Password:
-        </label>
-        <Field as={Input} className={styles['form-input']} type="password" id="password" name="password" placeholder="Password" />
-        <ErrorMessage name="password" component="span" className={styles['error-message']} />
+            {/* <!-- Password --> */}
+            <div className="space-y-2">
+              <Text className="font-bold text-lg text-black text-center">
+                {'Password'}
+              </Text>
+              <Input
+                className="block border-emerald-700 border w-full p-2 rounded-lg text"
+                name={'password'}
+                type={'password'}
+                value={formMik.values.password}
+                onChange={formMik.handleChange('password')}
+                placeholder="Password"
+              />
+              {formMik.errors.password && (
+                <Text>{formMik.errors.password}</Text>
+              )}
+            </div>
+          </form>
 
-        <button type="submit" className={styles['submit-button']}>
-          Login
-        </button>
-
-        <span className={styles['text-white']}> or </span>
-
-        <button type="button" className={styles['secondary-button']}>
-          Register
-        </button>
-
-        <span className={styles['forgot-password']}>Forgot Your Password</span>
-      </Form>
-    </Formik>
+          {/* <!-- Login Button --> */}
+          <div className="flex justify-between items-center">
+            <Button
+              label={'Login'}
+              type={'submit'}
+              className="block w-full bg-indigo-600 mt-8 py-2 hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2 text-center"
+            />
+          </div>
+          {/* <!-- Sign up  Link --> */}
+          <div className="text-blue-500 text-center">
+            <a href="/register" className="hover:underline ">
+              Sign up Here
+            </a>
+          </div>
+        </Card>
+      </Card>
+    </div>
   );
 };
 
