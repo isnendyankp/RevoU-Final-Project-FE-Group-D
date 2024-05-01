@@ -1,4 +1,4 @@
-import { Carousel, FAQ } from '@/components';
+import { Carousel, FAQ, Testimonial } from '@/components';
 import Layout from '@/layout';
 import 'flowbite';
 // import Image from "next/image";
@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <Layout>
       <Carousel />
+      <Testimonial />
       <FAQ />
     </Layout>
   );

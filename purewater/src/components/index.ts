@@ -9,3 +9,4 @@ export { default as Carousels } from './Carousel';
 export { default as FAQ } from './FAQ';
 export { default as AboutUs } from './About';
 export { default as WhyUs } from './Why'
+export { default as Testimonial } from './Testimonial';
