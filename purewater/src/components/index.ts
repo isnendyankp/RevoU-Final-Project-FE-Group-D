@@ -8,4 +8,6 @@ export { default as Navbar } from './Navbar';
 export { default as Carousel } from './Carousel';
 export { default as FAQ } from './FAQ';
 export { default as AboutUs } from './About';
+export { default as WhyUs } from './Why'
 export { default as Product } from './Product';
+export { default as Testimonial } from './Testimonial';
