@@ -1,4 +1,5 @@
-import { Carousel,AboutUs,WhyUs, FAQ, Testimonial, Product } from '@/components';
+
+import { Carousel, AboutUs, WhyUs, FAQ, Product, Testimonial } from '@/components';
 import Layout from '@/layout';
 import 'flowbite';
 // import Image from "next/image";
@@ -10,9 +11,9 @@ export default function Home() {
   return (
     <Layout>
       <Carousel />
-      <Product />
       <AboutUs />
       <WhyUs />
+      <Product />
       <Testimonial />
       <FAQ />
     </Layout>
