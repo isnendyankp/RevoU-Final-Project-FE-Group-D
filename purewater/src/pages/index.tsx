@@ -1,5 +1,6 @@
 import { Carousel, AboutUs, WhyUs, FAQ, Product, Testimonial } from '@/components';
 import Layout from '@/layout';
+import 'flowbite';
 // import Image from "next/image";
 // import { Inter } from "next/font/google";
 
