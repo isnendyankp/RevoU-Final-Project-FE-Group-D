@@ -2,6 +2,8 @@ import { Input, Text, Button, Card } from '../../components';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Register = () => {
   const router = useRouter();
@@ -20,13 +22,16 @@ const Register = () => {
     },
 
     onSubmit: async (values) => {
-      await fetch('https://mock-api.arikmpt.com/api/user/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
+      await fetch(
+        'https://revou-final-project-be-group-d-production.up.railway.app/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       router.push('/login');
     },
@@ -48,10 +53,12 @@ const Register = () => {
     <div className="bg-gray-100 flex justify-center items-center h-screen">
       {/* Left: Image */}
       <div className="w-1/2 h-screen hidden lg:block">
-        <img
-          src="https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA"
-          alt="Placeholder Image"
+        <Image
           className="object-cover w-full h-full"
+          src={`/assets/Mesin_reverse_osmosis.webp`}
+          width={500}
+          height={500}
+          alt="carousell-1"
         />
       </div>
       {/* Right: Form */}
@@ -119,12 +126,10 @@ const Register = () => {
               />
             </div>
           </form>
-            {/* <!-- Already Sign up  Link --> */}
-            <div className="text-blue-500 text-center">
-                <a href="/login" className="hover:underline ">
-                    Already have an account? Login Here
-                </a>
-            </div>
+          {/* <!-- Already Sign up  Link --> */}
+          <Link href="/login" className="text-blue-500 text-center">
+              Already have an account? Login Here
+          </Link>
         </Card>
       </Card>
     </div>
