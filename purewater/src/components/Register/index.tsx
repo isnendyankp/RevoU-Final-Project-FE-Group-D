@@ -1,92 +1,134 @@
-import { useState } from 'react';
-import Input from '../Input';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import styles from './styles/style-register.module.css';
+import { Input, Text, Button, Card } from '../../components';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { useRouter } from 'next/router';
 
-interface RegisterFormValues {
-    [key: string]: string;
-    fullName: string;
-    email: string;
-    password: string;
-}
-
 const Register = () => {
-    const route = useRouter();
-    const [formData] = useState<RegisterFormValues>({
-        fullName: '',
-        email: '',
-        password: '',
-    });
+  const router = useRouter();
 
-    return (
-        <div className="register-page">
-            <Formik
-                initialValues={formData}
-                validationSchema={Yup.object().shape({
-                    fullName: Yup.string().required('Full Name is required'),
-                    email: Yup.string().email('Invalid email address').required('Email Address is required'),
-                    password: Yup.string().required('Password is required').matches(/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/, 'Password must be at least 8 characters and alphanumeric'),
-                })}
-                onSubmit={async (values, { setSubmitting }) => {
-                    if (Object.keys(values).some((key) => values[key] === '')) {
-                        setSubmitting(false);
-                    } else {
-                        try {
-                            const requestOptions = {
-                                method: 'POST',
-                                body: JSON.stringify({
-                                    name: values.fullName,
-                                    email: values.email,
-                                    password: values.password,
-                                }),
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                            };
+  interface FormProps {
+    email: string;
+    username: string;
+    password: string;
+  }
 
-                            const response = await fetch('https://mock-api.arikmpt.com/api/user/register', requestOptions);
+  const formMik = useFormik<FormProps>({
+    initialValues: {
+      email: '',
+      username: '',
+      password: '',
+    },
 
-                            if (response.ok) {
-                                const responseData = await response.json();
-                                console.log('Registration successful:', responseData);
-                                route.push('/login');
-                            } else {
-                                const errorData = await response.json();
-                                console.error('Registration failed:', errorData);
-                            }
-                        } catch (error) {
-                            console.error('Error:', error);
-                        }
-                    }
-                }}
-            >
-                <Form className={styles['form-container']}>
-                    <h1 className={`${styles['mb-5']} ${styles['text-white']}`}>Register Page</h1>
+    onSubmit: async (values) => {
+      await fetch('https://mock-api.arikmpt.com/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-                    <label htmlFor="name" className={styles['label']}>
-                        Name:
-                    </label>
-                    <Field as={Input} className={styles['input']} type="text" id="fullName" name="fullName" placeholder="Fullname" />
+      router.push('/login');
+    },
 
-                    <label htmlFor="email" className={styles['label']}>
-                        Email:
-                    </label>
-                    <Field as={Input} className={styles['input']} type="email" id="email" name="email" placeholder="Email" />
+    validationSchema: yup.object({
+      username: yup.string().required('Username tidak boleh kosong'),
+      email: yup
+        .string()
+        .email('Email harus valid')
+        .required('Email tidak boleh kosong'),
+      password: yup
+        .string()
+        .min(8, 'Password harus setidaknya berisi 8 karakter')
+        .required('Password tidak boleh kosong'),
+    }),
+  });
 
-                    <label htmlFor="password" className={styles['label']}>
-                        Password:
-                    </label>
-                    <Field as={Input} className={styles['input']} type="password" id="password" name="password" placeholder="Password" />
+  return (
+    <div className="bg-gray-100 flex justify-center items-center h-screen">
+      {/* Left: Image */}
+      <div className="w-1/2 h-screen hidden lg:block">
+        <img
+          src="https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA"
+          alt="Placeholder Image"
+          className="object-cover w-full h-full"
+        />
+      </div>
+      {/* Right: Form */}
+      <Card
+        border={false}
+        className="flex items-center justify-center min-h-screen bg-gray-200 "
+      >
+        <Card border className="p-10 bg-white shadow-lg rounded-lg">
+          <form onSubmit={formMik.handleSubmit} className="space-y-4">
+            {/* Username section */}
+            <div>
+              <Text className="block font-semibold text-emerald-700">
+                Username
+              </Text>
+              <Input
+                className="w-full px-3 py-2 border-emerald-700 border rounded-md"
+                name={'username'}
+                value={formMik.values.username}
+                onChange={formMik.handleChange('username')}
+              />
 
-                    <button type="submit" className={styles['button']}>
-                        Register
-                    </button>
-                </Form>
-            </Formik>
-        </div>
-    );
+              {formMik.errors.username && (
+                <Text className="text-red-500">{formMik.errors.username}</Text>
+              )}
+            </div>
+
+            <div>
+              <Text className="block font-semibold text-emerald-700">
+                Email
+              </Text>
+              <Input
+                className="w-full px-3 py-2 border-emerald-700 border rounded-md"
+                name={'email'}
+                value={formMik.values.email}
+                onChange={formMik.handleChange('email')}
+              />
+
+              {formMik.errors.email && (
+                <Text className="text-red-500">{formMik.errors.email}</Text>
+              )}
+            </div>
+
+            <div>
+              <Text className="block font-semibold text-emerald-500">
+                Password
+              </Text>
+              <Input
+                className="w-full px-3 py-2 border-emerald-700 border rounded-md"
+                name={'password'}
+                type={'password'}
+                value={formMik.values.password}
+                onChange={formMik.handleChange('password')}
+              />
+
+              {formMik.errors.password && (
+                <Text className="text-red-500">{formMik.errors.password}</Text>
+              )}
+            </div>
+
+            <div>
+              <Button
+                label={'Submit'}
+                type={'submit'}
+                className={'w-full bg-green-500 text-white rounded-md py-2'}
+              />
+            </div>
+          </form>
+            {/* <!-- Already Sign up  Link --> */}
+            <div className="text-blue-500 text-center">
+                <a href="/login" className="hover:underline ">
+                    Already have an account? Login Here
+                </a>
+            </div>
+        </Card>
+      </Card>
+    </div>
+  );
 };
 
 export default Register;
