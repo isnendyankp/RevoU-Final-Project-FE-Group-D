@@ -3,6 +3,8 @@ import { Input, Text, Button, Card } from '../../components';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
 
 // Login component
 
@@ -40,7 +42,7 @@ const Login = () => {
     onSubmit: async (values) => {
       try {
         const response = await fetch(
-          'https://mock-api.arikmpt.com/api/user/login',
+          'https://revou-final-project-be-group-d-production.up.railway.app/login',
           {
             method: 'POST',
             headers: {
@@ -69,10 +71,12 @@ const Login = () => {
     <div className="bg-gray-100 flex justify-center items-center h-screen">
       {/* Left: Image */}
       <div className="w-1/2 h-screen hidden lg:block">
-        <img
-          src="https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA"
-          alt="Placeholder Image"
+        <Image
           className="object-cover w-full h-full"
+          src={`/assets/Mesin_filter_air.webp`}
+          width={500}
+          height={500}
+          alt="Filter Penyaring Kran Air"
         />
       </div>
 
@@ -131,11 +135,9 @@ const Login = () => {
 
           </form>
           {/* <!-- Sign up  Link --> */}
-          <div className="text-blue-500 text-center">
-            <a href="/register" className="hover:underline ">
-              Sign up Here
-            </a>
-          </div>
+          <Link href="/register" className="text-blue-500 text-center">
+            Sign up Here
+          </Link>
         </Card>
       </Card>
     </div>
