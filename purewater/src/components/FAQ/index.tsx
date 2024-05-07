@@ -2,7 +2,7 @@
 const FAQ = () => {
 
     return (
-        <div className="p-8">
+        <div id="faq" className="p-8">
             <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
             <h4 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">FAQ</h4>
             <p className="text-center text-gray-600 text-xl mt-2">Anda Bertanya Kami Menjawab</p>
