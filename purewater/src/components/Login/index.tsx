@@ -139,7 +139,7 @@ const Login = ({onLoginSuccess}: {onLoginSuccess: (token: string) => void}) => {
 
           </form>
           {/* <!-- Sign up  Link --> */}
-          <Link href="/register" className="text-blue-500 text-center">
+          <Link href="/register" className="text-blue-500 flex justify-center">
             Sign up Here
           </Link>
         </Card>
