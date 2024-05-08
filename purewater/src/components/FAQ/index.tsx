@@ -16,7 +16,7 @@ const FAQ = () => {
                         </svg>
                     </div>
                     <div>
-                        <h4 className="text-xl font-bold text-gray-700">Apa manfaat yang saya peroleh ketika menggunakan produk filterdari Pure Water?</h4>
+                        <h4 className="text-xl font-bold text-gray-700">Apa manfaat yang saya peroleh ketika menggunakan produk filter dari Pure Water?</h4>
                         <p className="text-gray-600 my-2">Anda mendapatkan filter produk berkualitas dengan standar nasional. Anda mendapatkan layanan Voluntary Inspection (Pemeriksaan GRATIS selama 2 kali dalam setengah tahun penggunaan produk filter dari Pure Water).</p>
                     </div>
                 </div>

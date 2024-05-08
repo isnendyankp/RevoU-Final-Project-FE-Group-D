@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 // Login component
 
-const Login = () => {
+const Login = ({onLoginSuccess}: {onLoginSuccess: (token: string) => void}) => {
   // use Navigate router hook
   const router = useRouter();
 
@@ -55,8 +55,12 @@ const Login = () => {
         const data = await response.json();
         // set token to local storage
         localStorage.setItem('token', data.access_token);
+        // get token from local storage
+        const token = data.access_token;
+        // call onLoginSuccess function
+        onLoginSuccess(token);
         // navigate to home page
-        router.push('/');
+        // router.push('/');
       } catch (error) {
         // catch any network error or any error thrown in the fetch call
         console.log(
@@ -135,7 +139,7 @@ const Login = () => {
 
           </form>
           {/* <!-- Sign up  Link --> */}
-          <Link href="/register" className="text-blue-500 text-center">
+          <Link href="/register" className="text-blue-500 flex justify-center">
             Sign up Here
           </Link>
         </Card>

@@ -11,3 +11,4 @@ export { default as AboutUs } from './About';
 export { default as WhyUs } from './Why'
 export { default as Product } from './Product';
 export { default as Testimonial } from './Testimonial';
+export { default as ScrollToTopButton } from './ScrollToTopButton';
