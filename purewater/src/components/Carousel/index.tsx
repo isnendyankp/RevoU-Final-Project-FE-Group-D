@@ -7,7 +7,7 @@ const Carousel = () => {
           {/* <!-- Carousel wrapper --> */}
           <div className="relative h-screen overflow-hidden rounded-lg">
               {/* <!-- Item 1 --> */}
-              <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
+              <div className="duration-700 ease-in-out" data-carousel-item="active">
                 <Image className="absolute block object-cover w-full h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     src={`/assets/carousel1.jpg`}
                     width={500}
