@@ -12,8 +12,8 @@ const WhyUs = () => {
                     {/* <div className=" absolute top-0 -left-48 z-0  opacity-50 ">
                         <img src="https://placehold.co/200x100" className="w-36 z-0  h-full    object-fill fill-y text-y   "/>
                     </div> */}
-                    <div className="lg:max-w-xl lg:pr-5 relative z-40">
-                        <p className="flex text-sm uppercase text-black  ">
+                    <div className="text-center md:text-left lg:max-w-xl lg:pr-5 relative z-40">
+                        <p className="flex justify-center md:justify-start text-sm uppercase text-black">
                             
                             why us
                         </p>

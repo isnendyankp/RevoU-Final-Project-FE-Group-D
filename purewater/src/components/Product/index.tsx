@@ -18,7 +18,7 @@ const Product = () => {
                     alt="Filter Penyaring Kran Air"
                 />
                 <div className="flex flex-col justify-between py-6 lg:mx-6">
-                    <div className="text-xl font-semibold text-gray-800s dark:text-white ">
+                    <div className="text-xl font-semibold text-gray-800 dark:text-white ">
                         Filter Kran Air Penyaring dan Penjernih Air
                     </div>
                     

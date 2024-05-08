@@ -1,19 +1,21 @@
 import Image from 'next/image'
 
 const Testimonial = () => {
-    return (     
-      <><div className="flex justify-center mt-16 flex-col items-center">
-        <h2 className="text-3xl font-bold mb-4 text-black">Testimonials</h2>
-      </div>
-      <div className="flex justify-center mt-16">
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
+    return (
+      <>
+        <div className="flex justify-center mt-16 flex-col items-center">
+          <h2 className="text-3xl font-bold mb-4 text-black">Testimonials</h2>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center mt-16">
+          <div className="relative flex w-auto md:w-full max-w-none md:max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
             <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
               <Image
                 src={`/assets/Tommy.webp`}
                 width={500}
                 height={500}
                 alt="Foto Konsumen Tommy"
-                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center" />
+                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+              />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
                   <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -94,19 +96,22 @@ const Testimonial = () => {
             </div>
             <div className="mb-6 p-0">
               <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                {"\"Barang bagus dan berfungsi dengan baik, air yang tadi berlumpur menjadi bening dan ga berbau lagi mantap pokok nya barang filter nya\""}
+                {
+                  '"Barang bagus dan berfungsi dengan baik, air yang tadi berlumpur menjadi bening dan ga berbau lagi mantap pokok nya barang filter nya"'
+                }
               </p>
             </div>
           </div>
 
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
+          <div className="relative flex w-auto md:w-full max-w-none md:max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
             <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
               <Image
                 src={`/assets/Jueri.webp`}
                 width={500}
                 height={500}
                 alt="Foto Konsumen Jueri"
-                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center" />
+                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+              />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
                   <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -187,19 +192,22 @@ const Testimonial = () => {
             </div>
             <div className="mb-6 p-0">
               <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                {"\"Sesuai pesanan, sebelum pakai alat ini air sangat keruh warna coklat dan penuh lumpur, sekarang jauh lebih baik\""}
+                {
+                  '"Sesuai pesanan, sebelum pakai alat ini air sangat keruh warna coklat dan penuh lumpur, sekarang jauh lebih baik"'
+                }
               </p>
             </div>
           </div>
 
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
+          <div className="relative flex w-auto md:w-full max-w-none md:max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none ml-6 mr-6">
             <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8 text-gray-700 shadow-none">
               <Image
                 src={`/assets/Yudi.webp`}
                 width={500}
                 height={500}
                 alt="Foto Konsumen Yudi"
-                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center" />
+                className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+              />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
                   <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -280,13 +288,15 @@ const Testimonial = () => {
             </div>
             <div className="mb-6 p-0">
               <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                {"\"Sangat baik, sumber air sumur, setelah di filter tidak berbau, jernih dan tidak berasa.\""}
+                {
+                  '"Sangat baik, sumber air sumur, setelah di filter tidak berbau, jernih dan tidak berasa."'
+                }
               </p>
             </div>
           </div>
-
-        </div></>
-    )
+        </div>
+      </>
+    );
 }
 
 export default Testimonial;
