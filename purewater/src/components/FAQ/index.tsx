@@ -5,7 +5,7 @@ const FAQ = () => {
         <div className="p-8">
     <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
         <h4 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">FAQ</h4>
-        <p className="text-center text-gray-600 text-sm mt-2">Here are some of the frequently asked questions</p>
+        <p className="text-center text-gray-600 text-xl mt-2">Anda Bertanya Kami Menjawab</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
             <div className="flex space-x-8 mt-8">
                 <div>
@@ -16,9 +16,8 @@ const FAQ = () => {
                     </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Lorem ipsum dolor sit amet?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Apa manfaat yang saya peroleh ketika menggunakan produk filterdari Pure Water?</h4>
+                    <p className="text-gray-600 my-2">Anda mendapatkan filter produk berkualitas dengan standar nasional. Anda mendapatkan layanan Voluntary Inspection (Pemeriksaan GRATIS selama 2 kali dalam setengah tahun penggunaan produk filter dari Pure Water).</p>
                 </div>
             </div>
             
@@ -29,9 +28,8 @@ const FAQ = () => {
                     </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Consectetur adipisicing elit?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Bagaimana cara pemasangan produk filternya?</h4>
+                    <p className="text-gray-600 my-2">Untuk pemasangan bisa dilakukan sendiri oleh konsumen. Pada saat packing barang kami akan mengirimkan manual book serta link video pemasangan dari youtube yang mudah dipraktekkan oleh konsumen.</p>
                 </div>
             </div>
 
@@ -42,9 +40,8 @@ const FAQ = () => {
                         </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Neque eos, dignissimos provident reiciendis debitis?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Bagaimana cara pembayaran dalam pembelian produk-produk dari Pure Water?</h4>
+                    <p className="text-gray-600 my-2">Konsumen dapat melakukan pembayaran melalui Tranfer Bank, Cicilan pada Marketplace serta pembayaran di tempat atau COD (Cash on Delivery).</p>
                 </div>
             </div>
 
@@ -55,9 +52,8 @@ const FAQ = () => {
                     </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Repudiandae commodi perferendis et itaque?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Apakah air hasil filter dari produk Pure Water bisa diminum?</h4>
+                    <p className="text-gray-600 my-2">Pada tipe filter / saringan tertentu tentu saja ada yang bisa diminum, dimana hasil akhirnya telah memenuhi kelayakan Standar Air Minum.</p>
                 </div>
             </div>
 
@@ -68,9 +64,8 @@ const FAQ = () => {
                     </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Similique fugiat cumque?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Permasalahan air apa saja yang bisa diatasi dengan filter dari Pure Water?</h4>
+                    <p className="text-gray-600 my-2">Permasalahan air yang mengandung kandungan zat besi, mangan dan kapur.</p>
                 </div>
             </div>
 
@@ -81,14 +76,11 @@ const FAQ = () => {
                     </svg>
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-gray-700">Impedit iusto vitae dolorum, nostrum fugit?</h4>
-                    <p className="text-gray-600 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                    <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                    <h4 className="text-xl font-bold text-gray-700">Apakah ada biaya pengiriman produknya?</h4>
+                    <p className="text-gray-600 my-2">Setiap pembelian produk akan dikenakan biaya pengiriman yang ditanggung oleh konsumen. Namun, biaya pengiriman bisa menjadi gratis tergantung promo voucher yang digunakan oleh konsumen pada akun Marketplacenya masing-masing.</p>
                 </div>
             </div>
         </div>
-    </div>
-</div>
     );
 }
 
