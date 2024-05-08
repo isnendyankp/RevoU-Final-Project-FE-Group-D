@@ -1,4 +1,4 @@
-import { Footer, Navbar } from '../components';
+import { Footer, Navbar, ScrollToTopButton } from '../components';
 import { ReactNode } from 'react';
 
 interface Prop{
@@ -10,7 +10,9 @@ const Layout = ({children}:Prop)=>{
         <>
         <Navbar/>
         {children}
+        <ScrollToTopButton />
         <Footer/>
+        
         </>
     )
 }
