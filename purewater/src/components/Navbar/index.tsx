@@ -7,20 +7,31 @@ import AboutUs from "../About";
 import Product from "../Product";
 import FAQ from "../FAQ";
 import Footer from "../Footer";
+import Link from 'next/link'
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from 'next/navigation';
+
+
 
 const Navbar = () => {
+
+  const { isAuthenticated, login, logout } = useAuth();
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const handleClick = () => {
+    router.push('/login');
+  };
   return (
     <nav className="bg-white border border-gray-200 dark:border-gray-700 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 shadow sticky top-0 z-[100]">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap text-black">
             Pure Water
           </span>
-        </a>
+        </Link>
         <div className="flex items-center">
           <button
             onClick={toggleMobileMenu}
@@ -45,58 +56,76 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div className={`w-full md:block md:w-auto ${isMobileMenuOpen ? '' : 'hidden'}`} id="mobile-menu">
+        <div
+          className={`w-full md:block md:w-auto ${
+            isMobileMenuOpen ? '' : 'hidden'
+          }`}
+          id="mobile-menu"
+        >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                aria-current="page"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#aboutus"
                 className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 scroll-behavior: smooth"
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#product"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 scroll-behavior: smooth"
               >
                 Product
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#faq"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 scroll-behavior: smooth"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="#footer"
-                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent scroll-behavior: smooth"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 scroll-behavior: smooth"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
-            <li>
-              <a
-                href="/login"
-                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent flex items-center"
-              >
-                <CiLogin className="mr-1 text-xl"/>
-                Login
-              </a>
-            </li>
+            {isAuthenticated ? (
+              <li>
+                <button
+                  // href="/"
+                  onClick={logout}
+                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent flex items-center"
+                >
+                  Logout
+                  <CiLogin className="ml-1 text-xl" />
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button
+                  // href="/login"
+                  onClick={handleClick}
+                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent flex items-center"
+                >
+                  <CiLogin className="mr-1 text-xl" />
+                  Login
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

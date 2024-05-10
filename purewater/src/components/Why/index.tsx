@@ -1,5 +1,6 @@
 import React from "react"
 import Image from 'next/image'
+import Link from 'next/link'
 
 const WhyUs = () => {
   return (
@@ -11,8 +12,8 @@ const WhyUs = () => {
                     {/* <div className=" absolute top-0 -left-48 z-0  opacity-50 ">
                         <img src="https://placehold.co/200x100" className="w-36 z-0  h-full    object-fill fill-y text-y   "/>
                     </div> */}
-                    <div className="lg:max-w-xl lg:pr-5 relative z-40">
-                        <p className="flex text-sm uppercase text-black  ">
+                    <div className="text-center md:text-left lg:max-w-xl lg:pr-5 relative z-40">
+                        <p className="flex justify-center md:justify-start text-sm uppercase text-black">
                             
                             why us
                         </p>
@@ -22,13 +23,17 @@ const WhyUs = () => {
                         </h2>
                         <p className="text-base text-gray-700">Choose Health, Choose Quality, Choose Us for Reliable Clean Water.</p>
                         <div className="mt-10 flex flex-col items-center md:flex-row">
-                            <a href="/" className="mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-green-600 px-6 font-medium tracking-wide text-white shadow-md transition hover:bg-blue-800 focus:outline-none md:mr-4 md:mb-0 md:w-auto">
-                                View More</a>
-                            <a href="/" aria-label="" className="group inline-flex items-center font-semibold text-black">See our product
+                            <Link href="/" 
+                                className="mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-green-600 px-6 font-medium tracking-wide text-white shadow-md transition hover:bg-blue-800 focus:outline-none md:mr-4 md:mb-0 md:w-auto">
+                                View More
+                            </Link>
+                            <Link href="#product" 
+                                className="group inline-flex items-center font-semibold text-black">
+                                See our product
                                 <svg xmlns="http://www.w3.org/2000/svg" className="ml-4 h-6 w-6 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     
