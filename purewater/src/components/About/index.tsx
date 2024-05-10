@@ -21,25 +21,11 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-            <div className="text-center md:text-left grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-black sm:grid-cols-2 md:flex lg:gap-x-10">
-              <a href="#">
-                Why Us <span aria-hidden="true">&rarr;</span>
-              </a>
-              <a href="#">
-                Product <span aria-hidden="true">&rarr;</span>
-              </a>
-              <a href="#">
-                Testimoni<span aria-hidden="true">&rarr;</span>
-              </a>
-              <a href="#">
-                FAQ <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-            <dl className="text-center md:text-left mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 text-black lg:grid-cols-4">
+            <dl className="text-center md:text-left mt-10 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 text-black lg:grid-cols-4">
               <div className="flex flex-col-reverse">
                 <dt className="text-base leading-7">Product</dt>
                 <dd className="text-2xl font-bold leading-9 tracking-tight text-black">
-                  4
+                  6
                 </dd>
               </div>
               <div className="flex flex-col-reverse">

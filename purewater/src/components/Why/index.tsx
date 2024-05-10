@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const WhyUs = () => {
   return (
-    <div className="bg-white relative   flex items-center  n justify-center overflow-hidden z-50 ">
+    <div id="whyus" className="bg-white relative   flex items-center  n justify-center overflow-hidden z-50 ">
         
         <div className="relative mx-auto h-full px-4  pb-20   md:pb-10 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
             <div className="flex flex-col items-center justify-between lg:flex-row py-16">
