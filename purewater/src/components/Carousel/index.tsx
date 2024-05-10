@@ -21,34 +21,34 @@ const Carousel = () => {
                     src={`/assets/carousel2.jpg`}
                     width={500}
                     height={500}
-                    alt="banner 1"
+                    alt="banner 2"
                 />
               </div>
               {/* <!-- Item 3 --> */}
               <div className="hidden duration-700 ease-in-out" data-carousel-item>
                 <Image className="absolute block object-cover w-full h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    src={`/assets/carousel1.jpg`}
-                    width={500}
+                    src={`/assets/carousel3.webp`}
+                    width={1000}
                     height={500}
-                    alt="banner 1"
+                    alt="banner 3"
                 />
               </div>
               {/* <!-- Item 4 --> */}
               <div className="hidden duration-700 ease-in-out" data-carousel-item>
                 <Image className="absolute block object-cover w-full h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    src={`/assets/carousel2.jpg`}
+                    src={`/assets/carousel4.jpg`}
                     width={500}
-                    height={500}
-                    alt="banner 1"
+                    height={1500}
+                    alt="banner 4"
                 />
               </div>
               {/* <!-- Item 5 --> */}
               <div className="hidden duration-700 ease-in-out" data-carousel-item>
                 <Image className="absolute block object-cover w-full h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    src={`/assets/carousel1.jpg`}
-                    width={500}
+                    src={`/assets/carousel5.jpg`}
+                    width={1000}
                     height={500}
-                    alt="banner 1"
+                    alt="banner 5"
                 />
               </div>
           </div>
